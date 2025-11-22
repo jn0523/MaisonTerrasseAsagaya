@@ -36,12 +36,12 @@
 	* 画像:リビング:TV・チューナー・ゲーム機を有線LAN接続可能！
 	* 画像:ダイニング:炊飯器・IHヒーター等も挿せます
 * 個室にニッチ・ハンガーラックあり
-	* 画像:comingsoon
+	* 画像:lack
 * トイレは調光照明で夜中も眩しくない！
 	* 画像:toilet
 * ペットもいっしょに暮らせます
-	* 画像:イオン発生器(comingsoon)
-	* 画像:ペットスペース(comingsoon)
+	* 画像:イオン発生器
+	* 画像:ペットスペース
 		* ロボット掃除機収納も可
 ## 内見時にご確認ください
 ### 物件アクセス
@@ -59,8 +59,9 @@
 	2. 三井のリパーク 阿佐谷南１丁目第３
 	   [GoogleMap](https://maps.app.goo.gl/GR8Jp78e4P6Ehqkm6)
 * 現地で、内見される方に降車いただいてから駐車する場合
-	1. タイムズカー 阿佐谷南１丁目２７
-	   [GoogleMap](https://maps.app.goo.gl/mZiavD3QKLjYf8hK9)
+	1. ナビパーク阿佐ヶ谷南第4駐車場
+	[GoogleMap](https://maps.app.goo.gl/dFynV1Q4HhgjhybRA)
+
 
 ### 扉の開け方
 * 101号室
