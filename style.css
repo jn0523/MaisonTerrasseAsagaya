@@ -2,8 +2,8 @@
     --bg-color: #FDFBF7;
     --text-color: #4A4036;
     --heading-color: #3E3A39;
-    --accent-color: #C5A065;
-    --accent-light: #E8DCC5;
+    --accent-color: #9DAF73;
+    --accent-light: #F4F7EF;
     --white: #FFFFFF;
     --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     --radius: 12px;
@@ -15,6 +15,8 @@
 body {
     font-family: var(--font-sans);
     background-color: var(--bg-color);
+    background-image: url('style/bg_pattern.png');
+    background-repeat: repeat;
     color: var(--text-color);
     line-height: 1.8;
     margin: 0;
@@ -105,7 +107,7 @@ img {
     display: flex;
     align-items: center;
     backdrop-filter: blur(5px);
-    border-bottom: 1px solid rgba(197, 160, 101, 0.2);
+    border-bottom: 1px solid rgba(157, 175, 115, 0.2);
 }
 
 .header-container {
@@ -315,7 +317,10 @@ img {
 }
 
 .bg-overlay {
+    background-image: url('style/bg_pattern.png');
+    background-repeat: repeat;
     background-color: rgba(253, 251, 247, 0.92);
+    /* Blend mode to allow texture to show while keeping some tint if needed, or just opaque texture */
     padding: 2rem 0;
 }
 
