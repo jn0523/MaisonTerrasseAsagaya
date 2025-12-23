@@ -310,7 +310,7 @@ img {
 /* Background Wrapper */
 .bg-maison-wrapper {
     position: relative;
-    background-image: url('images/maison.jpeg');
+    background-image: url('images/maisonimage.jpeg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
