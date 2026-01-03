@@ -23,7 +23,8 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #ddd; /* For browser preview distinction */
+    background-color: #ddd;
+    /* For browser preview distinction */
     font-family: var(--font-sans);
     color: var(--text-color);
     -webkit-print-color-adjust: exact;
@@ -32,9 +33,11 @@ body {
 
 .sheet {
     width: 297mm;
-    height: 209mm; /* Slightly less than 210 to avoid overflow */
+    height: 209mm;
+    /* Slightly less than 210 to avoid overflow */
     background-color: var(--bg-color);
-    background-image: url('style/bg_pattern.png'); /* Pattern from style.css */
+    background-image: url('style/bg_pattern.png');
+    /* Pattern from style.css */
     background-repeat: repeat;
     margin: 0 auto;
     padding: 10mm;
@@ -42,13 +45,14 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 @media print {
     body {
         background: none;
     }
+
     .sheet {
         margin: 0;
         box-shadow: none;
@@ -59,10 +63,16 @@ body {
 }
 
 /* Borders for layout debugging / defined look */
-.catch-box, .qr-box, .title-box, 
-.col-left, .point-section, .images-container,
-.plan-box, .info-list-box,
-.conditions-box, .deck-box,
+.catch-box,
+.qr-box,
+.title-box,
+.col-left,
+.point-section,
+.images-container,
+.plan-box,
+.info-list-box,
+.conditions-box,
+.deck-box,
 .agent-footer {
     border: 2px solid var(--border-color);
     background: #fff;
@@ -71,7 +81,8 @@ body {
 /* Header Row */
 .header-row {
     display: grid;
-    grid-template-columns: 1.5fr 0.5fr 1.5fr; /* Adjust ratios */
+    grid-template-columns: 1.5fr 0.5fr 1.5fr;
+    /* Adjust ratios */
     gap: 5mm;
     height: 35mm;
     margin-bottom: 5mm;
@@ -82,7 +93,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: var(--accent-light); /* Slight tint */
+    background-color: var(--accent-light);
+    /* Slight tint */
 }
 
 .main-catch {
@@ -147,10 +159,13 @@ body {
 /* Main Grid */
 .main-grid {
     display: grid;
-    grid-template-columns: 1fr 1.5fr 1fr; /* Left, Center, Right */
+    grid-template-columns: 1fr 1.5fr 1fr;
+    /* Left, Center, Right */
     gap: 5mm;
-    flex: 1; /* Fill remaining height */
-    min-height: 0; /* Prevent overflow */
+    flex: 1;
+    /* Fill remaining height */
+    min-height: 0;
+    /* Prevent overflow */
 }
 
 /* Left Column */
@@ -158,7 +173,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 4mm;
-    border: none; /* Container has no border */
+    border: none;
+    /* Container has no border */
     background: transparent;
 }
 
@@ -193,7 +209,8 @@ body {
     display: block;
     font-size: 11pt;
     margin-bottom: 1mm;
-    color: #B8860B; /* Gold/Brown from style.css */
+    color: #B8860B;
+    /* Gold/Brown from style.css */
 }
 
 .point-content p {
@@ -202,8 +219,36 @@ body {
     line-height: 1.3;
 }
 
+/* Premium Highlight for Point 3 */
+.special-point {
+    background: linear-gradient(135deg, #142850 0%, #2A5298 100%);
+    color: #fff;
+    padding: 2mm;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 3mm;
+    border: 1px solid #0D1B36;
+}
+
+.special-point .point-num {
+    color: #FFE082;
+    /* Gold accent */
+}
+
+.special-point .point-content strong {
+    color: #fff;
+    font-size: 11.5pt;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.special-point .point-content p {
+    color: #E3F2FD;
+    /* Light Blue-White */
+}
+
 .images-container {
-    height: 60mm; /* Fixed height for photos area */
+    height: 60mm;
+    /* Fixed height for photos area */
     display: flex;
     flex-direction: column;
     gap: 2mm;
@@ -217,7 +262,8 @@ body {
     overflow: hidden;
     border: 1px solid #ccc;
     background: #fff;
-    border-radius: 4px; /* Slight rounded */
+    border-radius: 4px;
+    /* Slight rounded */
 }
 
 .img-wrapper img {
@@ -230,7 +276,7 @@ body {
     position: absolute;
     bottom: 0;
     left: 0;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     color: #fff;
     padding: 1mm 3mm;
     font-size: 8pt;
@@ -274,7 +320,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #fff; /* Plain white for plan */
+    background: #fff;
+    /* Plain white for plan */
     padding: 2mm;
 }
 

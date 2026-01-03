@@ -148,18 +148,21 @@ def create_presentation():
     w_col1 = Cm(9.0)
     
     # Points
-    txBox = slide.shapes.add_textbox(x_col1, y_main, w_col1, Cm(6.0))
-    tf = txBox.text_frame
-    tf.word_wrap = True
-    
     points = [
         ("1. 駅徒歩8分", "都心アクセスと閑静さを両立！"),
         ("2. 徒歩5分圏内に子育て施設充実", "保育園/幼稚園/小学校/球技OK公園"),
-        ("3. 食洗機・自動洗浄浴槽付", "月26時間分の家事を削減 ※1\n約32,000円分の時間価値！ ※2")
     ]
+
+    current_y = y_main
     
+    # Draw Points
     for title, desc in points:
-        p = tf.add_paragraph()
+        height_approx = Cm(1.8)
+        txBox = slide.shapes.add_textbox(x_col1, current_y, w_col1, height_approx)
+        tf = txBox.text_frame
+        tf.word_wrap = True
+        
+        p = tf.paragraphs[0]
         p.text = title
         p.font.bold = True
         p.font.size = Pt(12)
@@ -168,15 +171,86 @@ def create_presentation():
         p = tf.add_paragraph()
         p.text = desc
         p.font.size = Pt(10)
-        p.space_after = Pt(10)
-
-    # Images (Kitchen/Bath)
-    y_img = y_main + Cm(7.0)
-    h_img = Cm(4.5)
-    w_img = w_col1 / 2 - Cm(0.2)
+        
+        current_y += height_approx
     
-    slide.shapes.add_picture(ensure_image("images/101/kitchen.JPG"), x_col1, y_img, width=w_img)
-    slide.shapes.add_picture(ensure_image("images/101/bath.JPG"), x_col1 + w_img + Cm(0.4), y_img, width=w_img)
+    # --- Premium Equipment Box ---
+    # Space below points
+    current_y += Cm(0.5)
+    
+    # Calculate remaining height or set fixed
+    box_height = Cm(8.0)
+    
+    # Blue Box Background
+    box = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, x_col1, current_y, w_col1, box_height)
+    box.fill.solid()
+    box.fill.fore_color.rgb = RGBColor(20, 40, 80) # Navy Blue
+    box.line.color.rgb = RGBColor(13, 27, 54)
+    
+    # Inside Box - Y Coordinates relative to slide, but logically inside
+    inner_y = current_y + Cm(0.3)
+    inner_x = x_col1 + Cm(0.3)
+    inner_w = w_col1 - Cm(0.6)
+    
+    # Title
+    txBox = slide.shapes.add_textbox(inner_x, inner_y, inner_w, Cm(1.0))
+    p = txBox.text_frame.paragraphs[0]
+    p.text = "家事代行級の設備"
+    p.font.name = "Zen Old Mincho"
+    p.font.bold = True
+    p.font.size = Pt(14)
+    p.font.color.rgb = RGBColor(255, 224, 130) # Gold
+    p.alignment = PP_ALIGN.CENTER
+    
+    inner_y += Cm(1.2)
+    
+    # Row 1: Bath
+    # Text
+    txBox = slide.shapes.add_textbox(inner_x, inner_y, inner_w - Cm(2.8), Cm(2.0))
+    tf = txBox.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "自動おそうじ浴槽"
+    p.font.bold = True
+    p.font.size = Pt(10)
+    p.font.color.rgb = RGBColor(255, 224, 130)
+    p = tf.add_paragraph()
+    p.text = "洗剤を入れてスイッチを押すだけで浴槽をキレイに！"
+    p.font.size = Pt(8)
+    p.font.color.rgb = RGBColor(255, 255, 255)
+    # Image
+    slide.shapes.add_picture(ensure_image("images/101/bath.JPG"), inner_x + inner_w - Cm(2.5), inner_y, width=Cm(2.5), height=Cm(1.8))
+    
+    inner_y += Cm(2.0)
+    
+    # Row 2: Kitchen
+    # Text
+    txBox = slide.shapes.add_textbox(inner_x, inner_y, inner_w - Cm(2.8), Cm(2.0))
+    tf = txBox.text_frame
+    tf.word_wrap = True
+    p = tf.paragraphs[0]
+    p.text = "食洗機付きキッチン"
+    p.font.bold = True
+    p.font.size = Pt(10)
+    p.font.color.rgb = RGBColor(255, 224, 130)
+    p = tf.add_paragraph()
+    p.text = "リビングを見渡しやすいペニンシュラキッチン！"
+    p.font.size = Pt(8)
+    p.font.color.rgb = RGBColor(255, 255, 255)
+    # Image
+    slide.shapes.add_picture(ensure_image("images/101/kitchen.JPG"), inner_x + inner_w - Cm(2.5), inner_y, width=Cm(2.5), height=Cm(1.8))
+    
+    inner_y += Cm(2.2)
+    
+    # Summary
+    txBox = slide.shapes.add_textbox(inner_x, inner_y, inner_w, Cm(1.5))
+    tf = txBox.text_frame
+    p = tf.paragraphs[0]
+    p.text = "1ヶ月で約26時間分の家事を削減！\n約32,000円分の時間価値！"
+    p.font.bold = True
+    p.font.size = Pt(11)
+    p.font.color.rgb = RGBColor(255, 255, 255)
+    p.alignment = PP_ALIGN.CENTER
     
     # Center Col
     x_col2 = x_col1 + w_col1 + Cm(0.5)
@@ -255,7 +329,7 @@ def create_presentation():
     p.font.color.rgb = RGBColor(200, 200, 200)
     p.alignment = PP_ALIGN.CENTER
 
-    prs.save('MaisonTerrasseAsagaya_Maisoku_v2.pptx')
+    prs.save('MaisonTerrasseAsagaya_Maisoku_v4.pptx')
     print("PPTX generated successfully.")
 
 if __name__ == "__main__":
