@@ -600,4 +600,87 @@ footer {
     .sub-title {
         margin-left: 1rem;
     }
+
+    /* Mobile-specific Utility Classes */
+    .pc-only {
+        display: none !important;
+    }
+
+    .sp-only {
+        display: block !important;
+    }
+
+    /* Mobile Layout Optimizations */
+    .fixed-header {
+        height: 60px;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .hero-spacer {
+        height: 60px;
+    }
+
+    .card-style,
+    .feature-card,
+    .info-card {
+        padding: 1.5rem;
+    }
+
+    .subsection-title {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Adjust map container aspect ratio for mobile */
+    .map-container-large {
+        padding-bottom: 75%;
+        /* Taller map on mobile */
+    }
+
+    .hero-title-large {
+        font-size: 1.8rem;
+        /* Smaller title on mobile */
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .access-list-item {
+        border-bottom: 1px solid #eee;
+        padding: 1rem 0;
+    }
+
+    .access-list-item:last-child {
+        border-bottom: none;
+    }
+
+    .access-station {
+        font-weight: bold;
+        color: var(--heading-color);
+        font-size: 1.1rem;
+        display: block;
+        margin-bottom: 0.2rem;
+    }
+
+    .emphasis-text strong {
+        font-size: 1.3rem;
+        /* Reduced from 1.6rem to prevent wrap */
+    }
+
+    .highlight-text {
+        font-size: 1.0rem;
+    }
+}
+
+/* Desktop Defaults for Utilities */
+.pc-only {
+    display: block;
+}
+
+.sp-only {
+    display: none;
 }

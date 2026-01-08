@@ -57,13 +57,16 @@
 
     <header class="fixed-header">
         <div class="header-container">
-            <div class="logo">Maison Terrasse Asagaya 101</div>
+            <div class="logo">
+                <span class="pc-only">Maison Terrasse Asagaya 101</span>
+                <span class="sp-only">Maison 101</span>
+            </div>
             <nav>
                 <ul>
                     <li><a href="#location">立地</a></li>
                     <li><a href="#facilities">設備</a></li>
                     <li><a href="#plan">PLAN</a></li>
-                    <li><a href="#guide">内見ガイド</a></li>
+                    <li><a href="#guide"><span class="pc-only">内見ガイド</span><span class="sp-only">ガイド</span></a></li>
                 </ul>
             </nav>
         </div>
@@ -97,43 +100,74 @@
                     <div class="grid-2-col">
                         <div class="text-content card-style">
                             <p class="lead-text-left">家から新宿駅まで<strong>最速20分以内</strong>でお出かけ！</p>
-                            <table class="access-table">
-                                <thead>
-                                    <tr>
-                                        <th>駅</th>
-                                        <th>所要時間</th>
-                                        <th>条件</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th>新宿駅</th>
-                                        <td>18分</td>
-                                        <td>平日 中央線快速利用時</td>
-                                    </tr>
-                                    <tr>
-                                        <th>東京駅</th>
-                                        <td>33分</td>
-                                        <td>平日 中央線快速利用時</td>
-                                    </tr>
-                                    <tr>
-                                        <th>霞ヶ関駅</th>
-                                        <td>36分</td>
-                                        <td>丸ノ内線利用時</td>
-                                    </tr>
-                                    <tr>
-                                        <th>市ヶ谷駅</th>
-                                        <td>32分</td>
-                                        <td>中央線各駅停車利用時</td>
-                                    </tr>
-                                    <tr>
-                                        <th>吉祥寺駅</th>
-                                        <td>16分</td>
-                                        <td>中央線利用時</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+
+                            <!-- PC View: Table -->
+                            <div class="pc-only">
+                                <table class="access-table">
+                                    <thead>
+                                        <tr>
+                                            <th>駅</th>
+                                            <th>所要時間</th>
+                                            <th>条件</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>新宿駅</th>
+                                            <td>18分</td>
+                                            <td>平日 中央線快速利用時</td>
+                                        </tr>
+                                        <tr>
+                                            <th>東京駅</th>
+                                            <td>33分</td>
+                                            <td>平日 中央線快速利用時</td>
+                                        </tr>
+                                        <tr>
+                                            <th>霞ヶ関駅</th>
+                                            <td>36分</td>
+                                            <td>丸ノ内線利用時</td>
+                                        </tr>
+                                        <tr>
+                                            <th>市ヶ谷駅</th>
+                                            <td>32分</td>
+                                            <td>中央線各駅停車利用時</td>
+                                        </tr>
+                                        <tr>
+                                            <th>吉祥寺駅</th>
+                                            <td>16分</td>
+                                            <td>中央線利用時</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- SP View: List -->
+                            <div class="sp-only">
+                                <div class="access-list">
+                                    <div class="access-list-item">
+                                        <span class="access-station">新宿駅</span>
+                                        18分 <small>(平日 中央線快速利用時)</small>
+                                    </div>
+                                    <div class="access-list-item">
+                                        <span class="access-station">東京駅</span>
+                                        33分 <small>(平日 中央線快速利用時)</small>
+                                    </div>
+                                    <div class="access-list-item">
+                                        <span class="access-station">霞ヶ関駅</span>
+                                        36分 <small>(丸ノ内線利用時)</small>
+                                    </div>
+                                    <div class="access-list-item">
+                                        <span class="access-station">市ヶ谷駅</span>
+                                        32分 <small>(中央線各駅停車利用時)</small>
+                                    </div>
+                                    <div class="access-list-item">
+                                        <span class="access-station">吉祥寺駅</span>
+                                        16分 <small>(中央線利用時)</small>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
                         <div class="image-content card-style">
                             <p class="lead-text-left">阿佐ヶ谷駅から<strong>徒歩7分</strong></p>
                             <img src="images/周辺/77.jpg" alt="阿佐ヶ谷の七夕祭り" class="img-responsive mb-2">
@@ -178,7 +212,8 @@
 
                     <div class="highlight-box fade-in">
                         <p class="highlight-text emphasis-text">
-                            1ヶ月で約<strong>26時間分の家事を削減！</strong><br>約<strong>32,000円分の時間価値！</strong></p>
+                            1ヶ月で約<strong>26時間分の家事を削減！</strong><br class="pc-only"><span
+                                class="sp-only"><br></span>約<strong>32,000円分の時間価値！</strong></p>
                         <small>※ 31日間毎日 浴槽掃除5分/食器洗い15分3回行った場合<br>※ 東京都の最低賃金1,226円/時での概算</small>
                     </div>
 
