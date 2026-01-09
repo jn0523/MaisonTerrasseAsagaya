@@ -601,6 +601,39 @@ footer {
         margin-left: 1rem;
     }
 
+    /* Horizontal Scroll / Slideshow */
+    .horizontal-scroll-container {
+        display: flex;
+        overflow-x: auto;
+        gap: 1.5rem;
+        padding: 1rem 0.5rem;
+        -webkit-overflow-scrolling: touch;
+        /* smooth scroll on iOS */
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* IE/Edge */
+    }
+
+    .horizontal-scroll-container::-webkit-scrollbar {
+        display: none;
+        /* Chrome/Safari */
+    }
+
+    .scroll-item {
+        flex: 0 0 80%;
+        /* Show 80% of item on mobile */
+        max-width: 300px;
+        scroll-snap-align: start;
+    }
+
+    .scroll-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        margin-bottom: 0.5rem;
+    }
+
     /* Mobile-specific Utility Classes */
     .pc-only {
         display: none !important;
@@ -676,6 +709,109 @@ footer {
     }
 }
 
+/* New Design Additions */
+
+/* Sharp Green Text for Room Features */
+.sharp-green-text {
+    font-family: 'Zen Old Mincho', serif;
+    color: #1a4d33;
+    /* Deep Green */
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    display: block;
+    border-bottom: 1px solid #1a4d33;
+    padding-bottom: 0.5rem;
+}
+
+/* Room Layout: Image Left, Text Right (on PC) */
+.room-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.room-layout img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.room-description {
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .room-layout {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .sharp-green-text {
+        font-size: 1.2rem;
+        text-align: center;
+        border-bottom: none;
+        border-left: 4px solid #1a4d33;
+        padding-left: 1rem;
+        padding-bottom: 0;
+    }
+}
+
+/* Refined Horizontal Scroll (SUUMO-like) */
+.horizontal-scroll-section {
+    position: relative;
+    padding: 0 1rem;
+}
+
+.horizontal-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+}
+
+.scroll-item {
+    flex: 0 0 280px;
+    /* Fixed width for consistency */
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #eee;
+    overflow: hidden;
+}
+
+.scroll-item img {
+    width: 100%;
+    height: 180px;
+    /* Consistent height */
+    object-fit: cover;
+    margin-bottom: 0;
+}
+
+.scroll-item .caption {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    color: #333;
+    background: #fff;
+    margin: 0;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .scroll-item {
+        flex: 0 0 85%;
+    }
+}
+
 /* Desktop Defaults for Utilities */
 .pc-only {
     display: block;
@@ -683,4 +819,138 @@ footer {
 
 .sp-only {
     display: none;
+}
+
+/* Lightbox Gallery Styles */
+.lightbox-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-content-wrapper {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-caption {
+    color: #fff;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 4px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Lightbox Controls */
+.lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 3rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: transform 0.2s;
+    z-index: 10001;
+}
+
+.lightbox-close:hover {
+    transform: scale(1.1);
+}
+
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    padding: 1rem 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    z-index: 10001;
+    border-radius: 4px;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.lightbox-prev {
+    left: -60px;
+}
+
+.lightbox-next {
+    right: -60px;
+}
+
+/* Mobile Adjustments for Lightbox */
+@media (max-width: 768px) {
+    .lightbox-close {
+        top: 10px;
+        right: 10px;
+        position: fixed;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+        position: fixed;
+        /* Fix to screen edges on mobile */
+        padding: 1.5rem 0.8rem;
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    .lightbox-prev {
+        left: 0;
+    }
+
+    .lightbox-next {
+        right: 0;
+    }
+
+    .lightbox-image {
+        max-height: 70vh;
+    }
 }
