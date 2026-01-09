@@ -77,7 +77,7 @@
     <section class="hero">
         <div class="hero-image-container">
             <img src="images/maison2.JPG" alt="Maison Terrasse Asagaya" class="hero-image">
-            <p class="image-note">※ 外観はイメージです</p>
+
         </div>
         <div class="hero-text-overlay">
             <div class="catchphrase-container">
@@ -185,31 +185,7 @@
                             </div>
                         </div>
 
-                        <h4 class="text-center mt-6 mb-4 section-title-small">周辺環境</h4>
-                        <div class="horizontal-scroll-section">
-                            <div class="horizontal-scroll-container">
-                                <div class="scroll-item">
-                                    <img src="images/周辺/PerlCenter1.JPG" alt="PerlCenter" class="img-responsive">
-                                    <p class="caption">Perlcenter</p>
-                                </div>
-                                <div class="scroll-item">
-                                    <img src="images/周辺/阿佐谷東公園.JPG" alt="阿佐谷東公園" class="img-responsive">
-                                    <p class="caption">ボール遊びができる阿佐ヶ谷東公園（徒歩2分）</p>
-                                </div>
-                                <div class="scroll-item">
-                                    <img src="images/周辺/杉並第六小学校.JPG" alt="杉並第六小学校" class="img-responsive">
-                                    <p class="caption">杉並第六小学校（徒歩4分）</p>
-                                </div>
-                                <div class="scroll-item">
-                                    <img src="images/周辺/ピーコックストア.JPG" alt="ピーコックストア" class="img-responsive">
-                                    <p class="caption">ピーコックストア（徒歩6分）</p>
-                                </div>
-                                <div class="scroll-item">
-                                    <img src="images/周辺/CanDo.JPG" alt="CanDo" class="img-responsive">
-                                    <p class="caption">CanDo（徒歩7分）</p>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </section>
 
@@ -522,23 +498,11 @@
         <p class="disclaimer">設備等の情報が現況と異なる場合は、現況を優先します。</p>
     </footer>
 
-    <!-- Lightbox Modal -->
-    <div id="lightbox-modal" class="lightbox-modal">
-        <button class="lightbox-close">&times;</button>
-        <button class="lightbox-prev">&#10094;</button>
-        <button class="lightbox-next">&#10095;</button>
-        <div class="lightbox-content-wrapper">
-            <img src="" alt="拡大画像" class="lightbox-image">
-            <p class="lightbox-caption"></p>
-        </div>
-    </div>
-
     <script>
         // Opening Animation
         window.addEventListener('load', () => {
             const mask = document.getElementById('intro-mask');
             const heroOverlay = document.querySelector('.hero-text-overlay');
-            const body = document.body;
 
             // Immediately allow scrolling
             body.classList.remove('no-scroll');
@@ -558,7 +522,7 @@
             }, 800);
         });
 
-        // Scroll Animation Observer
+        // Scroll Animation Observer & Slider Logic
         document.addEventListener('DOMContentLoaded', () => {
             const observerOptions = {
                 root: null,
@@ -578,78 +542,7 @@
             const fadeElements = document.querySelectorAll('.fade-in');
             fadeElements.forEach(el => observer.observe(el));
 
-            // Lightbox Logic
-            const scrollItems = document.querySelectorAll('.scroll-item');
-            const lightbox = document.getElementById('lightbox-modal');
-            const lightboxImg = lightbox.querySelector('.lightbox-image');
-            const lightboxCaption = lightbox.querySelector('.lightbox-caption');
-            const closeBtn = lightbox.querySelector('.lightbox-close');
-            const prevBtn = lightbox.querySelector('.lightbox-prev');
-            const nextBtn = lightbox.querySelector('.lightbox-next');
 
-            let currentIndex = 0;
-            const galleryItems = [];
-
-            // Collect gallery data
-            scrollItems.forEach((item, index) => {
-                const img = item.querySelector('img');
-                const caption = item.querySelector('.caption').textContent;
-                galleryItems.push({ src: img.src, caption: caption });
-
-                // Add click event
-                item.addEventListener('click', () => {
-                    openLightbox(index);
-                });
-                item.style.cursor = 'pointer'; // Indicate clickable
-            });
-
-            function openLightbox(index) {
-                currentIndex = index;
-                updateLightboxContent();
-                lightbox.classList.add('active');
-            }
-
-            function closeLightbox() {
-                lightbox.classList.remove('active');
-            }
-
-            function updateLightboxContent() {
-                const item = galleryItems[currentIndex];
-                lightboxImg.src = item.src;
-                lightboxCaption.textContent = item.caption;
-            }
-
-            function showNext() {
-                currentIndex = (currentIndex + 1) % galleryItems.length;
-                updateLightboxContent();
-            }
-
-            function showPrev() {
-                currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-                updateLightboxContent();
-            }
-
-            // Event Listeners for Lightbox
-            closeBtn.addEventListener('click', closeLightbox);
-            nextBtn.addEventListener('click', (e) => { e.stopPropagation(); showNext(); });
-            prevBtn.addEventListener('click', (e) => { e.stopPropagation(); showPrev(); });
-
-            // Close on background click
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox || e.target.closest('.lightbox-content-wrapper') === null) {
-                    if (e.target !== nextBtn && e.target !== prevBtn) {
-                        closeLightbox();
-                    }
-                }
-            });
-
-            // Keyboard navigation
-            document.addEventListener('keydown', (e) => {
-                if (!lightbox.classList.contains('active')) return;
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowRight') showNext();
-                if (e.key === 'ArrowLeft') showPrev();
-            });
         });
     </script>
 </body>
