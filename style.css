@@ -551,6 +551,15 @@ footer {
     opacity: 0.8;
 }
 
+/* Responsive Utility Classes - Default (PC) */
+.pc-only {
+    display: block;
+}
+
+.sp-only {
+    display: none;
+}
+
 /* Animations */
 .fade-in {
     opacity: 0;
