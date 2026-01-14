@@ -227,18 +227,18 @@
                 </section>
 
                 <!-- PLAN Section -->
-                <section id="plan" class="section fade-in">
+                <section id="plan" class="section">
                     <div class="section-header">
                         <h2 class="section-title">PLAN</h2>
                     </div>
 
-                    <div class="card-style mb-4 text-center">
+                    <div class="card-style mb-4 text-center fade-in">
                         <img src="images_forweb/101/plan_101_white.webp" alt="間取り図" class="img-responsive mb-2"
                             style="max-width: 600px; margin: 0 auto;">
                         <p class="feature-text">家具を配置しやすいシンプルis bestな間取り</p>
                     </div>
 
-                    <div class="card-style mb-4">
+                    <div class="card-style mb-4 fade-in">
                         <h3 class="room-title">LDK</h3>
                         <div class="room-layout" style="align-items: flex-start;">
                             <!-- Left: LDK Plan -->
@@ -279,7 +279,7 @@
                         </div>
                     </div>
 
-                    <div class="card-style mb-4">
+                    <div class="card-style mb-4 fade-in">
                         <h3 class="room-title">Bedroom1</h3>
                         <div class="room-layout">
                             <img src="images_forweb/101/101_bedroom1.webp" alt="Bedroom1" class="img-responsive">
@@ -295,7 +295,7 @@
                         </div>
                     </div>
 
-                    <div class="card-style mb-4">
+                    <div class="card-style mb-4 fade-in">
                         <h3 class="room-title">Bedroom2</h3>
                         <div class="room-layout">
                             <img src="images_forweb/101/101_bedroom2.webp" alt="Bedroom2" class="img-responsive">
@@ -305,15 +305,15 @@
                             </div>
                         </div>
                         <div class="grid-2-col">
+                            <img src="images_forweb/101/room2-2.webp" alt="room2-1" class="img-responsive">
                             <div class="vertical-stack">
                                 <img src="images_forweb/101/woodshelf.webp" alt="木製台" class="img-responsive">
-                                <p class="caption">ちょっとうれしい木製台。化粧台や小物置きとしても使えます</p>
+                                <p class="caption">ちょっとうれしい木製台。<br>化粧台や小物置きとしても使えます</p>
                             </div>
-                            <img src="images_forweb/101/room2-2.webp" alt="room2-1" class="img-responsive">
                         </div>
                     </div>
 
-                    <div class="card-style mb-4">
+                    <div class="card-style mb-4 fade-in">
                         <h3 class="room-title">Bedroom3</h3>
                         <div class="room-layout">
                             <img src="images_forweb/101/101_bedroom3.webp" alt="Bedroom3" class="img-responsive">
@@ -329,7 +329,7 @@
                         </div>
                     </div>
 
-                    <div class="card-style mb-4">
+                    <div class="card-style mb-4 fade-in">
                         <h3 class="room-title">可動間仕切り収納</h3>
                         <div class="grid-2-col">
                             <img src="images_forweb/101/shelf.webp" alt="可動間仕切り収納" class="img-responsive">
@@ -345,7 +345,7 @@
                         </div>
                     </div>
 
-                    <div class="card-style mb-4">
+                    <div class="card-style mb-4 fade-in">
                         <h3 class="room-title">PowderRoom</h3>
                         <div class="grid-2-col">
                             <div>
@@ -359,7 +359,7 @@
                         </div>
                     </div>
 
-                    <div class="card-style mb-4">
+                    <div class="card-style mb-4 fade-in">
                         <h3 class="room-title">省エネ性能</h3>
                         <div class="room-layout">
                             <img src="images_forweb/BELS/BELS_101.webp" alt="BELS評価書" class="img-responsive">
@@ -533,7 +533,7 @@
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
-                threshold: 0.1
+                threshold: 0.01  // Changed from 0.1 to support very tall sections on mobile
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
