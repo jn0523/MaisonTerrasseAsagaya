@@ -708,12 +708,23 @@ footer {
     }
 
     .emphasis-text strong {
-        font-size: 1.3rem;
-        /* Reduced from 1.6rem to prevent wrap */
+        font-size: 1.2rem;
+        /* Reduced to prevent wrap on mobile */
     }
 
     .highlight-text {
-        font-size: 1.0rem;
+        font-size: 0.95rem;
+        line-height: 1.8;
+    }
+
+    .highlight-box {
+        padding: 1rem 0.8rem;
+        margin-top: 2rem;
+    }
+
+    .highlight-box small {
+        font-size: 0.7rem;
+        line-height: 1.5;
     }
 }
 
