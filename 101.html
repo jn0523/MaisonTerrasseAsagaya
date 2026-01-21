@@ -218,11 +218,9 @@
                     </div>
 
                     <h3 class="subsection-title mt-6">広々ウォークインクローゼット</h3>
-                    <div class="grid-2-col">
-                        <div class="feature-card">
-                            <img src="images_forweb/101/WIC101.webp" alt="2帖の広々WIC" class="img-responsive">
-                            <p class="caption">2帖の広々WIC</p>
-                        </div>
+                    <div class="card-style mb-4 text-center">
+                        <img src="images_forweb/101/WIC101.webp" alt="2帖の広々WIC" class="img-responsive mb-2">
+                        <p class="caption">2帖の広々WIC</p>
                     </div>
                 </section>
 
@@ -501,31 +499,31 @@
             // 1. Mask fades out (revealing Maison image)
             setTimeout(() => {
                 mask.style.opacity = '0';
-            }, 500);
+            }, 200);
 
             // 2. Show Hero Overlay container
             setTimeout(() => {
                 heroOverlay.style.opacity = '1';
-            }, 1000);
+            }, 500);
 
             // 3. Animate Text lines sequentially
             setTimeout(() => {
                 if (text1) text1.classList.add('visible');
-            }, 1500);
+            }, 800);
 
             setTimeout(() => {
                 if (text2) text2.classList.add('visible');
-            }, 3000);
+            }, 1800);
 
             setTimeout(() => {
                 if (text3) text3.classList.add('visible');
-            }, 4500);
+            }, 2800);
 
             // 4. Enable scroll
             setTimeout(() => {
                 body.classList.remove('no-scroll');
                 mask.style.display = 'none';
-            }, 5000);
+            }, 3300);
         });
 
         // Scroll Animation Observer & Slider Logic
