@@ -47,6 +47,17 @@
             display: inline-block;
             font-family: var(--font-serif);
         }
+
+        .powderspace-layout {
+            align-items: flex-start;
+            grid-template-columns: 6fr 4fr;
+        }
+
+        @media (max-width: 768px) {
+            .powderspace-layout {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -344,20 +355,19 @@
 
                     <div class="card-style mb-4 fade-in">
                         <h3 class="room-title">PowderSpace</h3>
-                        <div class="room-layout" style="align-items: flex-start; grid-template-columns: 6fr 4fr;">
+                        <div class="room-layout powderspace-layout">
                             <div>
                                 <img src="images_forweb/201/powderspace.webp" alt="PowderRoom" class="img-responsive">
                                 <p class="caption">汚れが溜まりづらいハイバックタイプのタッチレス水栓<br>木製台は立っても座っても使える高さ。小物や化粧スペースに</p>
-
-                                <div class="mt-4">
-                                    <img src="images_forweb/201/toilet.webp" alt="Toilet" class="img-responsive">
-                                    <p class="caption">調光スイッチ照明で、夜中のトイレも眩しくありません。</p>
-                                </div>
                             </div>
                             <div class="room-description">
                                 <span class="sharp-green-text">ただいま手洗い</span>
                                 <p>玄関から入る帰宅導線上の手洗い場で、<br>お子様の手洗い・うがいを自然に習慣化。<br>清潔な住環境・健康をサポートします。</p>
                                 <p>脱衣所の外にあるので、ご家族が入浴中でも<br>気兼ねなく歯磨きや身支度ができます。</p>
+                            </div>
+                            <div>
+                                <img src="images_forweb/201/toilet.webp" alt="Toilet" class="img-responsive">
+                                <p class="caption">調光スイッチ照明で、夜中のトイレも眩しくありません。</p>
                             </div>
                         </div>
                     </div>
