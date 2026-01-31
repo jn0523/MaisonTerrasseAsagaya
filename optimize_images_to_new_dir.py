@@ -38,11 +38,11 @@ def optimize_images():
                         # Convert to RGB (handles RGBA, P, MPO, etc.)
                         rgb_im = img.convert('RGB')
                         
-                        # New filename with .jpg extension
-                        new_filename = file_name + ".jpg"
+                        # New filename with .webp extension
+                        new_filename = file_name + ".webp"
                         dest_path = os.path.join(dest_root, new_filename)
                         
-                        rgb_im.save(dest_path, 'JPEG', quality=95)
+                        rgb_im.save(dest_path, 'WEBP', quality=85)
                         print(f"Converted: {file_path} -> {dest_path}")
                 except IOError:
                     # Not an image or cannot be opened
